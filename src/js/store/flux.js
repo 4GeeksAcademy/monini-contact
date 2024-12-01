@@ -48,8 +48,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 						})
 					})
 
-					const result = await response.json()
-					return result
+					if (response.ok) {
+						const newContact = await response.json();
+						const store = getStore();
+						setStore({
+							contacts: [...store.contacts, newContact],
+						});
+					}
 				}
 				catch (error) {
 					console.log(error)

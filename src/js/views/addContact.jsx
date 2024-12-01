@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { Home } from "./home";
+import { useNavigate } from "react-router";
 
 const AddContact = () => {
     const [name, setName] = useState("");

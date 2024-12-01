@@ -4,8 +4,8 @@ import "../../styles/home.css";
 import { useNavigate } from "react-router";
 
 export const Home = () => {
-	const navigate = useNavigate()
-	const { actions, store } = useContext(Context)
+	const navigate = useNavigate();
+	const { actions, store } = useContext(Context);
 	console.log(store);
 	
 
