@@ -1,0 +1,109 @@
+body {
+    background-color: #f8f9fa;
+    }
+
+h1 {
+    color: #c76cdd; 
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.card {
+    background-color: #ffe6f7; /* Fondo rosado suave */
+    border: 2px solid #d0006f; /* Borde rosado fuerte */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animación al pasar el mouse */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Animación de elevación */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra más fuerte al pasar el mouse */
+}
+
+
+.card .btn {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.fa-trash {
+    color: white;
+    font-size: 18px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-danger {
+    background-color: #c384ec; /* Rosa brillante */
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    font-size: larger;
+}
+
+.custom {
+    background-color: #df7fb2; /* Rosado fuerte */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Círculo perfecto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Ícono blanco */
+    font-size: 2rem; /* Tamaño del ícono */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.custom-person {
+    color: rgb(146, 89, 236);
+    font-size: larger;
+}
+
+body {
+    background-color: #f8ebf2; /* Color rosado claro */
+    
+    color: #5e004a; /* Color rosado oscuro para el texto */
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://example.com/barbie-pattern.jpg'); /* Usa un patrón Barbie, busca imágenes repetibles */
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-primary {
+    background-color: #ff69b4; /* Rosa brillante */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px; /* Bordes redondeados */
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.card-title {
+    color: #5e004a;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #5e004a; /* Rosado oscuro */
+    font-size: 1.1rem;
+}

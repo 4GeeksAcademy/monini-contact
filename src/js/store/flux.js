@@ -1,45 +1,81 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			contacts: []
+
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+			getMycontacts: () => {
+				fetch('https://playground.4geeks.com/contact/agendas/moninilat/contacts')
+					.then(response => response.json()
+						.then(responseJson => {
+							const newContacts = responseJson.contacts;
+							setStore({ contacts: newContacts });
+						})
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+					)
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			},
+			createAgenda: async () => {
+				try {
+					const response = await fetch("https://playground.4geeks.com/contact/agendas/moninilat", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify()
+					})
+					const result = await response.json()
+					return result
+				}
+				catch (error) {
+					console.log(error)
+				}
+			},
+
+			createContact: async (name, phone, email, address) => {
+				try {
+					const response = await fetch("https://playground.4geeks.com/contact/agendas/moninilat/contacts", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({
+							name: name,
+							phone: phone,
+							email: email,
+							address: address
+						})
+					})
+
+					const result = await response.json()
+					return result
+				}
+				catch (error) {
+					console.log(error)
+				}
+			},
+			
+			deleteContact: async (id) => {
+				try {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/moninilat/contacts/${id}`, {
+						method: "DELETE",
+
+					});
+					if (response.ok) {
+						const actions = getActions();
+						actions.getMycontacts();
+					}
+				} catch (error) {
+					console.log(error);
+					
+				}
+			}	
+
 		}
-	};
+
+	}
 };
+
 
 export default getState;
