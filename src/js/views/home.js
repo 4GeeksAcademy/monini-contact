@@ -7,13 +7,13 @@ export const Home = () => {
 	const navigate = useNavigate();
 	const { actions, store } = useContext(Context);
 	console.log(store);
-	
+
 
 	return (
 		<div className="container text-center mt-5">
 			<div className="d-flex justify-content-between align-items-center mb-4">
 				<h1>Contact list</h1>
-				<button className="btn-primary" onClick={() => navigate("/addContact")}> Create contact
+				<button className="btn-primary btn-hover" onClick={() => navigate("/addContact")}> Create contact
 				</button>
 			</div>
 
@@ -22,7 +22,7 @@ export const Home = () => {
 				store.contacts.map((contact, index) => (
 					<div key={index} className="card mb-3">
 						<div className="card-body d-flex justify-content-between align-items-center">
-						<div className="fs-1 custom"><i className="fa-solid fa-user custom-person"></i></div>
+							<div className="fs-1 custom"><i className="fa-solid fa-user custom-person"></i></div>
 							<div>
 								<h5 className="card-title">{contact.name}</h5>
 								<p className="card-text mb-1">
@@ -32,14 +32,22 @@ export const Home = () => {
 									<i className="fa fa-envelope me-2"></i>{contact.email}
 								</p>
 							</div>
-							<button className="btn btn-danger" onClick={()=> actions.deleteContact(contact.id)}>
+							<div className="button">
+							<button
+								className="btn btn-warning me-2 btn-hover"
+								onClick={() => navigate(`/editContact/${contact.id}`)}
+							>
+								<i className="fa fa-pencil"></i>
+							</button>
+							<button className="btn btn-danger btn-hover" onClick={() => actions.deleteContact(contact.id)}>
 								<i className="fa fa-trash"></i>
 							</button>
+							</div>
 						</div>
 					</div>
 				))
 			) : (
-				<p>No contacts available. Add some!</p>
+				<h4><br></br>No contacts available. Add some!</h4>
 			)}
 		</div>
 	)

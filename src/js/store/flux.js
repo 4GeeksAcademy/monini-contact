@@ -61,6 +61,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			
+			editContact: async (id, name, phone, email, address) => {
+				try {
+				  const response = await fetch(`https://playground.4geeks.com/contact/agendas/moninilat/contacts/${id}`, {
+					method: "PUT",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+					  name: name,
+					  phone: phone,
+					  email: email,
+					  address: address,
+					}),
+				  });
+			  
+				  if (response.ok) {
+					const updatedContact = await response.json();
+					const store = getStore();
+					setStore({
+					  contacts: store.contacts.map((contact) =>
+						contact.id === id ? updatedContact : contact
+					  ),
+					});
+				  }
+				} catch (error) {
+				  console.log(error);
+				}
+			  },
+			  
+
 			deleteContact: async (id) => {
 				try {
 					const response = await fetch(`https://playground.4geeks.com/contact/agendas/moninilat/contacts/${id}`, {

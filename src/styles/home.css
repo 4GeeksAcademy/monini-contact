@@ -45,12 +45,9 @@ h1 {
 }
 
 .btn-danger {
-    background-color: #c384ec; /* Rosa brillante */
+    background-color: #c384ec;
     border: none;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: transform 0.2s;
     font-size: larger;
 }
@@ -106,4 +103,32 @@ body {
 .card-text {
     color: #5e004a; /* Rosado oscuro */
     font-size: 1.1rem;
+}
+
+.btn-warning {
+    background-color: #c384ec; 
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    font-size: larger;
+    color: #f8f9fa;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    
+}
+
+
+
+.btn-hover {
+    transition: background-color 0.3s, transform 0.2s; /* Suavizar la transición */
+}
+
+
+.btn-hover:hover {
+    background-color: #ff69b4; /* Color rosa brillante */
+    color: white; /* Asegúrate de que el texto/ícono sea visible */
+    transform: scale(1.1); /* Efecto de escala opcional */
 }
